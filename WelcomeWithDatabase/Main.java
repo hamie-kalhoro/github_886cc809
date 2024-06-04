@@ -27,12 +27,10 @@ public class Main {
 		button4.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         button4.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
         button4.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
-
         });
 
         JButton button3 = new JButton("SIGN UP");
@@ -49,8 +47,6 @@ public class Main {
 				new SignUp();
 			}
 		});
-		
-
         JLabel label1 = new JLabel("New user, ");
 		label1.setBounds(145, 200, 250, 25);
 		label1.setForeground(Color.blue);
@@ -63,6 +59,15 @@ public class Main {
 		signInbtn.setBackground(Color.black);
 		signInbtn.setForeground(Color.white);
 		signInbtn.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        signInbtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == signInbtn) {
+					frame.dispose();
+					new LogIn();
+				}
+			}
+		});
 		
 
         JButton button1 = new JButton("SIGN UP");
