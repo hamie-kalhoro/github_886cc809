@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -30,6 +32,12 @@ public class SignUp {
 		exit.setForeground(Color.black);
 		exit.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
 		exit.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
         JButton back = new JButton("BACK");
 		back.setBounds(80,290,80,20);
@@ -99,10 +107,22 @@ public class SignUp {
 		panel2.setPreferredSize(new Dimension(420,405));
 		panel2.setLayout(null);
 
+        panel2.add(fullname);
+		panel2.add(usertxt);
+		panel2.add(password);
+		panel2.add(passtxt);
+		panel2.add(re_password);
+		panel2.add(re_passtxt);
+		panel2.add(done);
+		panel2.add(back);
+		panel2.add(exit);
+
         JPanel panel1 = new JPanel();
 		panel1.setBackground(Color.WHITE);
 		panel1.setPreferredSize(new Dimension(420,50));
 		panel1.setLayout(null);
+
+        panel1.add(label);
 
         frame = new JFrame("sign-up");
 		frame.setSize(420,500);
