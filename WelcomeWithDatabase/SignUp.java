@@ -1,5 +1,6 @@
 package WelcomeWithDatabase;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -108,6 +109,9 @@ public class SignUp {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
+
+        frame.add(panel1, BorderLayout.NORTH);
+		frame.add(panel2, BorderLayout.SOUTH);
 
         frame.setVisible(true);
     
