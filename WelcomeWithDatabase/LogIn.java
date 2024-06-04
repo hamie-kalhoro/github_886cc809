@@ -29,6 +29,7 @@ public class LogIn {
 		exit.setBackground(Color.white);
 		exit.setForeground(Color.black);
 		exit.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        exit.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
         exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -42,8 +43,7 @@ public class LogIn {
 		logout.setFocusable(false);
 		logout.setBackground(Color.white);
 		logout.setForeground(Color.black);
-//		logout.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3));
-		logout.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        logout.setFont(new Font("Sans Pro", Font.PLAIN, 15));
 
         JButton back = new JButton("BACK");
 		back.setBounds(80,260,80,20);

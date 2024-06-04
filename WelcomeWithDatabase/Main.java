@@ -25,6 +25,7 @@ public class Main {
 		button4.setBackground(Color.black);
 		button4.setForeground(Color.white);
 		button4.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        button4.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
         button4.addActionListener(new ActionListener() {
 
             @Override
