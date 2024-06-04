@@ -1,8 +1,11 @@
 package WelcomeWithDatabase;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -27,6 +30,12 @@ public class LogIn {
 		exit.setBackground(Color.white);
 		exit.setForeground(Color.black);
 		exit.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
         JButton logout = new JButton("LOGOUT");
 		logout.setBounds(165,330,80,20);
@@ -88,10 +97,21 @@ public class LogIn {
 		panel2.setPreferredSize(new Dimension(420,405));
 		panel2.setLayout(null);
 
+        panel2.add(username);
+		panel2.add(usertxt);
+		panel2.add(password);
+		panel2.add(passtxt);
+		panel2.add(back);
+		panel2.add(check);
+		panel2.add(logout);
+		panel2.add(exit);
+
         JPanel panel1 = new JPanel();
 		panel1.setBackground(Color.WHITE);
 		panel1.setPreferredSize(new Dimension(420,50));
 		panel1.setLayout(null);
+
+        panel1.add(label);
 
         signInFrame = new JFrame("sign-in");
 		signInFrame.setSize(420,500);
@@ -99,7 +119,15 @@ public class LogIn {
 		signInFrame.setLocationRelativeTo(null);
 		signInFrame.setResizable(false);
 
+		signInFrame.add(panel1, BorderLayout.NORTH);
+		signInFrame.add(panel2, BorderLayout.SOUTH);
+
         signInFrame.setVisible(true);
     }
+
+    public static void main(String[] args) {
     
+        new LogIn();
+
+    }
 }
