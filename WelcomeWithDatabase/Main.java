@@ -1,5 +1,6 @@
 package WelcomeWithDatabase;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -63,21 +64,33 @@ public class Main {
 		panel2.setBackground(Color.white);
 		panel2.setPreferredSize(new Dimension(420,355));
 		panel2.setLayout(null);
+        panel2.add(label1);
+		panel2.add(button1);
+		panel2.add(signInbtn);
+		panel2.add(button3);
+		panel2.add(button4);
+	
 
         JPanel panel1 = new JPanel();
 		panel1.setBackground(Color.black);
 		panel1.setPreferredSize(new Dimension(420,100));
 		panel1.setLayout(null);
+        panel1.add(label);
 
         frame = new JFrame("Application");
 		frame.setSize(420,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
-		// frame.setResizable(false);
+		frame.setResizable(false);
+
+		frame.getContentPane().setBackground(Color.lightGray);
+		frame.add(panel1, BorderLayout.NORTH);
+		frame.add(panel2, BorderLayout.SOUTH);
+        
         frame.setVisible(true);
 
     }
-    
+
     public static void main(String[] args) {
 
         new Main();
