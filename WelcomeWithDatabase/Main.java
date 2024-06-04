@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,6 +26,14 @@ public class Main {
 		button4.setBackground(Color.black);
 		button4.setForeground(Color.white);
 		button4.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        button4.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+
+        });
 
         JButton button3 = new JButton("SIGN UP");
 		button3.setBounds(205,200,50,25);
