@@ -6,11 +6,15 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -47,6 +51,13 @@ public class SignUp {
 		back.setForeground(Color.black);
 //		back.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3));
 		back.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        back.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new Main();
+			}
+		});
 
         JButton done = new JButton("DONE!");
 		done.setBounds(250,290,80,20);
@@ -56,6 +67,42 @@ public class SignUp {
 		done.setForeground(Color.black);
 //		done.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3));
 		done.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        done.addActionListener(new ActionListener() {
+			
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			if(re_passtxt.getText().equals(passtxt.getText())){
+					
+				try {
+						
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple", "root", "hamid.2022");
+					
+					System.out.println("inseting data");
+					String sql = "INSERT INTO info (username, password) VALUES (?, ?)";
+					
+					PreparedStatement stmt = con.prepareStatement(sql);
+					stmt.setString(1, usertxt.getText());
+					stmt.setNString(2, passtxt.getText());
+					stmt.executeUpdate();
+					
+					JOptionPane.showMessageDialog(null, "data stored successfully!");
+					
+					con.close();
+						
+				} catch(Exception e1) {	System.out.println(e1); }
+				
+				frame.dispose();
+				new Main();
+					
+				} else {
+					JOptionPane.showMessageDialog(null, "Mis-Match Password!");
+				}
+			}
+				
+		});
 
         re_passtxt = new JPasswordField("**********");
 		re_passtxt.setBounds(80, 240, 250, 20);

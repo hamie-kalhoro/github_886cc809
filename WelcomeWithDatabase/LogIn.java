@@ -6,10 +6,16 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -44,6 +50,41 @@ public class LogIn {
 		logout.setBackground(Color.white);
 		logout.setForeground(Color.black);
         logout.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        logout.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				try {
+					
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple", "root", "hamid.2022");
+					
+					String sqlQuery = "SELECT * FROM info WHERE username='"+usertxt.getText()+"' AND password='"+passtxt.getText()+"'";
+					PreparedStatement sqlStmt = con.prepareStatement(sqlQuery);
+					
+					ResultSet rs = sqlStmt.executeQuery(sqlQuery);
+					
+					if(rs.next()) {
+						
+						String deleteQuery = "DELETE FROM info WHERE username='"+usertxt.getText()+"' AND password='"+passtxt.getText()+"'";
+						PreparedStatement deletestmt = con.prepareStatement(deleteQuery);
+						
+						int rowsDeleted = deletestmt.executeUpdate();
+						
+						if(rowsDeleted > 0) {
+							JOptionPane.showMessageDialog(null, "user deleted successfully.");
+						} else {
+							 JOptionPane.showMessageDialog(null, "Failed to delete the record.");
+						}
+					}
+					
+				} catch(Exception e1) {
+					System.out.println(e1);
+				}
+				
+			}
+		});
 
         JButton back = new JButton("BACK");
 		back.setBounds(80,260,80,20);
@@ -52,6 +93,14 @@ public class LogIn {
 		back.setBackground(Color.white);
 		back.setForeground(Color.black);
 		back.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        back.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				signInFrame.dispose();
+				new Main();
+			}
+		});
 
         JButton check = new JButton("CHECK!");
 		check.setBounds(250,260,80,20);
@@ -60,6 +109,35 @@ public class LogIn {
 		check.setBackground(Color.white);
 		check.setForeground(Color.black);
 		check.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        check.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple", "root", "hamid.2022");
+					
+					java.sql.Statement stmt = con.createStatement();
+					
+					System.out.println("inseting data");
+					String sql = "SELECT * FROM info WHERE username='"+usertxt.getText()+"'AND password='"+passtxt.getText().toString()+"'";
+					
+					ResultSet rs = stmt.executeQuery(sql);
+					
+					if(rs.next()) {
+						JOptionPane.showMessageDialog(null, "Login Successful.");
+					} else {
+						JOptionPane.showMessageDialog(null, "Invalid username / password.");
+					}
+					
+					con.close();
+						
+				} catch(Exception e1) {	System.out.println(e1); }
+				
+			}
+	
+		});
 
         passtxt = new JPasswordField("**********");
 		passtxt.setBounds(80, 190, 250, 20);

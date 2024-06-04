@@ -42,6 +42,13 @@ public class Main {
 		button3.setBackground(Color.white);
 		button3.setForeground(Color.blue);
 		button3.setFont(new Font("Sans Pro", Font.PLAIN, 13));
+        button3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new SignUp();
+			}
+		});
 		
 
         JLabel label1 = new JLabel("New user, ");
@@ -65,6 +72,13 @@ public class Main {
 		button1.setBackground(Color.black);
 		button1.setForeground(Color.white);
 		button1.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+        button1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				new SignUp();
+			}
+		});
 
         JLabel label = new JLabel("FOUNDATIONS");
 		label.setBounds(120, 37, 250, 24);
