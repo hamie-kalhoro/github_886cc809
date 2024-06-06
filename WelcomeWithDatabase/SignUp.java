@@ -32,7 +32,7 @@ public class SignUp {
 		exit.setBorder(BorderFactory.createEmptyBorder());
 		exit.setFocusable(false);
 		exit.setBackground(Color.white);
-		exit.setForeground(Color.black);
+		exit.setForeground(Color.RED);
 		exit.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
 		exit.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         exit.addActionListener(new ActionListener() {
@@ -47,7 +47,7 @@ public class SignUp {
 		back.setBorder(BorderFactory.createEmptyBorder());
 		back.setFocusable(false);
 		back.setBackground(Color.white);
-		back.setForeground(Color.black);
+		back.setForeground(Color.lightGray);
 //		back.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3));
 		back.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         back.addActionListener(new ActionListener() {
@@ -63,7 +63,7 @@ public class SignUp {
 		done.setBorder(BorderFactory.createEmptyBorder());
 		done.setFocusable(false);
 		done.setBackground(Color.white);
-		done.setForeground(Color.black);
+		done.setForeground(new Color(48, 145, 69));
 //		done.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3));
 		done.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         done.addActionListener(new ActionListener() {
@@ -105,7 +105,7 @@ public class SignUp {
 
         re_passtxt = new JPasswordField("**********");
 		re_passtxt.setBounds(80, 240, 250, 20);
-		re_passtxt.setForeground(Color.BLACK);
+		re_passtxt.setForeground(Color.BLUE);
 		re_passtxt.setBackground(Color.WHITE);
 		re_passtxt.setBorder(BorderFactory.createEmptyBorder());
 //		re_passtxt.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3));
@@ -118,7 +118,7 @@ public class SignUp {
 
         passtxt = new JPasswordField("**********");
 		passtxt.setBounds(80, 160, 250, 20);
-		passtxt.setForeground(Color.BLACK);
+		passtxt.setForeground(Color.BLUE);
 		passtxt.setBackground(Color.WHITE);
 		passtxt.setBorder(BorderFactory.createEmptyBorder());
 //		passtxt.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3));
@@ -131,7 +131,7 @@ public class SignUp {
 
         usertxt = new JTextField("enter your full-name");
 		usertxt.setBounds(80, 80, 250, 20);
-		usertxt.setForeground(Color.BLACK);
+		usertxt.setForeground(Color.BLUE);
 		usertxt.setBackground(Color.WHITE);
 		usertxt.setCaretColor(Color.blue);
 		usertxt.setBorder(BorderFactory.createEmptyBorder());
@@ -176,6 +176,7 @@ public class SignUp {
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 
+		frame.getContentPane().setBackground(Color.lightGray);
         frame.add(panel1, BorderLayout.NORTH);
 		frame.add(panel2, BorderLayout.SOUTH);
 

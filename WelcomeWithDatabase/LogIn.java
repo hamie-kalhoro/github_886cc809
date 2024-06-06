@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,6 +26,9 @@ public class LogIn {
     JTextField usertxt;
     JPasswordField passtxt;
 
+	ImageIcon userIcon = new ImageIcon("userIcon.png");
+	ImageIcon keyIcon = new ImageIcon("key.png");
+
     LogIn() {
 
         JButton exit = new JButton("EXIT");
@@ -32,7 +36,7 @@ public class LogIn {
 		exit.setBorder(BorderFactory.createEmptyBorder());
 		exit.setFocusable(false);
 		exit.setBackground(Color.white);
-		exit.setForeground(Color.black);
+		exit.setForeground(Color.RED);
 		exit.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         exit.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
         exit.addActionListener(new ActionListener() {
@@ -46,7 +50,7 @@ public class LogIn {
 		logout.setBounds(165,330,80,20);
 		logout.setBorder(BorderFactory.createEmptyBorder());
 		logout.setFocusable(false);
-		logout.setBackground(Color.white);
+		logout.setBackground(Color.red);
 		logout.setForeground(Color.black);
         logout.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         logout.addActionListener(new ActionListener() {
@@ -90,7 +94,7 @@ public class LogIn {
 		back.setBorder(BorderFactory.createEmptyBorder());
 		back.setFocusable(false);
 		back.setBackground(Color.white);
-		back.setForeground(Color.black);
+		back.setForeground(Color.lightGray);
 		back.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         back.addActionListener(new ActionListener() {
 			
@@ -106,7 +110,7 @@ public class LogIn {
 		check.setBorder(BorderFactory.createEmptyBorder());
 		check.setFocusable(false);
 		check.setBackground(Color.white);
-		check.setForeground(Color.black);
+		check.setForeground(new Color(48, 145, 69));
 		check.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         check.addActionListener(new ActionListener() {
 			@Override
@@ -140,7 +144,7 @@ public class LogIn {
 
         passtxt = new JPasswordField("**********");
 		passtxt.setBounds(80, 190, 250, 20);
-		passtxt.setForeground(Color.BLACK);
+		passtxt.setForeground(Color.blue);
 		passtxt.setBackground(Color.WHITE);
 		passtxt.setBorder(BorderFactory.createEmptyBorder());
 		passtxt.setFont(new Font("Sans Pro", Font.PLAIN, 25));
@@ -149,10 +153,11 @@ public class LogIn {
 		password.setBounds(80, 160, 250, 25);
 		password.setForeground(Color.WHITE);
 		password.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+		password.setIcon(keyIcon);
 
         usertxt = new JTextField("enter your registered name");
 		usertxt.setBounds(80, 100, 250, 20);
-		usertxt.setForeground(Color.BLACK);
+		usertxt.setForeground(Color.blue);
 		usertxt.setBackground(Color.WHITE);
 		usertxt.setCaretColor(Color.blue);
 		usertxt.setBorder(BorderFactory.createEmptyBorder());
@@ -162,6 +167,7 @@ public class LogIn {
 		username.setBounds(80, 70, 250, 25);
 		username.setForeground(Color.WHITE);
 		username.setFont(new Font("Sans Pro", Font.PLAIN, 15));
+		username.setIcon(userIcon);
 
         JLabel label = new JLabel("SIGNNING IN");
 		label.setBounds(10, 12, 250, 24);
@@ -195,6 +201,7 @@ public class LogIn {
 		signInFrame.setLocationRelativeTo(null);
 		signInFrame.setResizable(false);
 
+		signInFrame.getContentPane().setBackground(Color.lightGray);
 		signInFrame.add(panel1, BorderLayout.NORTH);
 		signInFrame.add(panel2, BorderLayout.SOUTH);
 

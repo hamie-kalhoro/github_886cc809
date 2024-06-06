@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,7 +16,8 @@ import javax.swing.JPanel;
 public class Main {
 
     static JFrame frame;
-
+	ImageIcon icon  = new ImageIcon("logOUT.png");
+	
     Main() {
 
         JButton button4 = new JButton("EXIT");
@@ -23,7 +25,7 @@ public class Main {
 		button4.setBorder(BorderFactory.createEtchedBorder());
 		button4.setFocusable(false);
 		button4.setBackground(Color.black);
-		button4.setForeground(Color.white);
+		button4.setForeground(Color.red);
 		button4.setFont(new Font("Sans Pro", Font.PLAIN, 15));
         button4.setBorder(BorderFactory.createLineBorder(Color.blue, 2));
         button4.addActionListener(new ActionListener() {
@@ -34,12 +36,12 @@ public class Main {
         });
 
         JButton button3 = new JButton("SIGN UP");
-		button3.setBounds(205,200,50,25);
+		button3.setBounds(200,200,60,25);
 		button3.setBorder(BorderFactory.createEmptyBorder());
 		button3.setFocusable(false);
 		button3.setBackground(Color.white);
 		button3.setForeground(Color.blue);
-		button3.setFont(new Font("Sans Pro", Font.PLAIN, 13));
+		button3.setFont(new Font("Sans Pro", Font.BOLD, 13));
         button3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -47,6 +49,7 @@ public class Main {
 				new SignUp();
 			}
 		});
+
         JLabel label1 = new JLabel("New user, ");
 		label1.setBounds(145, 200, 250, 25);
 		label1.setForeground(Color.blue);
@@ -68,7 +71,6 @@ public class Main {
 				}
 			}
 		});
-		
 
         JButton button1 = new JButton("SIGN UP");
 		button1.setBounds(150,120,100,25);
