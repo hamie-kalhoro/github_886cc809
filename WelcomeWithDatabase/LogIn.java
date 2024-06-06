@@ -126,7 +126,7 @@ public class LogIn {
 					ResultSet rs = stmt.executeQuery(sql);
 					
 					if(rs.next()) {
-						JOptionPane.showMessageDialog(null, "Login Successful.");
+						JOptionPane.showMessageDialog(null, "User found successfully", sql, JOptionPane.INFORMATION_MESSAGE);
 					} else {
 						JOptionPane.showMessageDialog(null, "Invalid username / password.");
 					}
