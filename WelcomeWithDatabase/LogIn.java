@@ -26,9 +26,6 @@ public class LogIn {
     JTextField usertxt;
     JPasswordField passtxt;
 
-	ImageIcon userIcon = new ImageIcon("userIcon.png");
-	ImageIcon keyIcon = new ImageIcon("key.png");
-
     LogIn() {
 
         JButton exit = new JButton("EXIT");
@@ -153,7 +150,6 @@ public class LogIn {
 		password.setBounds(80, 160, 250, 25);
 		password.setForeground(Color.WHITE);
 		password.setFont(new Font("Sans Pro", Font.PLAIN, 15));
-		password.setIcon(keyIcon);
 
         usertxt = new JTextField("enter your registered name");
 		usertxt.setBounds(80, 100, 250, 20);
@@ -167,7 +163,6 @@ public class LogIn {
 		username.setBounds(80, 70, 250, 25);
 		username.setForeground(Color.WHITE);
 		username.setFont(new Font("Sans Pro", Font.PLAIN, 15));
-		username.setIcon(userIcon);
 
         JLabel label = new JLabel("SIGNNING IN");
 		label.setBounds(10, 12, 250, 24);
