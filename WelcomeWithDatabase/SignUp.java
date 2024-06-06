@@ -80,9 +80,11 @@ public class SignUp {
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple", "root", "hamid.2022");
 					
 					System.out.println("inseting data");
-					String sql = "INSERT INTO info WHERE username = '"+usertxt.getText()+"' AND password = '"+usertxt.getText()+"'";
+					String sql = "INSERT INTO info (username, password) VALUES (?, ?)";
 					
 					PreparedStatement stmt = con.prepareStatement(sql);
+					stmt.setString(1, usertxt.getText());
+					stmt.setNString(2, passtxt.getText());
 					stmt.executeUpdate();
 					
 					JOptionPane.showMessageDialog(null, "data stored successfully!");
