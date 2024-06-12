@@ -35,7 +35,7 @@ public class Main {
             }
         });
 
-        JButton button3 = new JButton("SIGN UP");
+        JButton button3 = new JButton("<html><u>SIGN UP</u></html>");
 		button3.setBounds(200,200,60,25);
 		button3.setBorder(BorderFactory.createEmptyBorder());
 		button3.setFocusable(false);

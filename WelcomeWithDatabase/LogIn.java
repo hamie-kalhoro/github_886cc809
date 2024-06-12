@@ -55,7 +55,15 @@ public class LogIn {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				try {
+				if(usertxt.getText()=="") {
+					JOptionPane.showMessageDialog(null, "username is requird");
+				} else if (passtxt.getText()=="") {
+					JOptionPane.showMessageDialog(null, "password is requird");
+				} else if (usertxt.getText() == "" && passtxt.getText() == "") {
+					JOptionPane.showMessageDialog(null, "username and password is requird");
+				} else {
+					
+					try {
 					
 					Class.forName("com.mysql.jdbc.Driver");
 					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/apple", "root", "hamid.2022");
@@ -82,7 +90,8 @@ public class LogIn {
 				} catch(Exception e1) {
 					System.out.println(e1);
 				}
-				
+
+				}
 			}
 		});
 
